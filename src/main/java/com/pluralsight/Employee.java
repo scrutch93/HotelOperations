@@ -1,38 +1,97 @@
 package com.pluralsight;
 
 public class Employee {
-    private float totalPay;
-    private int regularHours;
 
-    private int overtimeHours;
+   private int employeeId;
+   private String name;
 
-    public Employee(float totalPay, int regularHours, int overtimeHours) {
-        this.totalPay = totalPay;
-        this.regularHours = regularHours;
-        this.overtimeHours = overtimeHours;
+   private String department;
+
+   private float payRate;
+
+   private  int hoursWorked;
+
+    public Employee(int employeeId, String name, String department, float payRate, int hoursWorked) {
+        this.employeeId = employeeId;
+        this.name = name;
+        this.department = department;
+        this.payRate = payRate;
+        this.hoursWorked = hoursWorked;
     }
 
-    public float getTotalPay() {
-        return totalPay;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setTotalPay(float totalPay) {
-        this.totalPay = totalPay;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public int getRegularHours() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public float getPayRate() {
+        return payRate;
+    }
+
+    public void setPayRate(float payRate) {
+        this.payRate = payRate;
+    }
+
+    public int getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(int hoursWorked) {
+        this.hoursWorked = hoursWorked;
+    }
+
+    public int getRegularHours(){
+
+        int regularHours = 0;
+
+        if(this.hoursWorked <= 40){
+
+
+            regularHours = this.hoursWorked;
+
+        }else{
+            regularHours = 40;
+        }
+
         return regularHours;
     }
 
-    public void setRegularHours(int regularHours) {
-        this.regularHours = regularHours;
+    public int getOvertimeHours(){
+        int overTimeHours = 0;
+
+        if(this.hoursWorked > 40){
+            overTimeHours = this.hoursWorked - 40;
+
+        }
+
+        return overTimeHours;
+
     }
 
-    public int getOvertimeHours() {
-        return overtimeHours;
+    public float getTotalPay(){
+
+      float totalPay = getRegularHours()* payRate + getOvertimeHours() * 1.5f * payRate;
+
+      return  totalPay;
     }
 
-    public void setOvertimeHours(int overtimeHours) {
-        this.overtimeHours = overtimeHours;
-    }
 }
