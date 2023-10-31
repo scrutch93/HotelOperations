@@ -51,10 +51,28 @@ public class Room {
         this.dirty = dirty;
     }
 
-    public boolean isAvailable(boolean dirty, boolean occupied) {
-       if(!dirty && !occupied){
+    public boolean isAvailable() {
         return available;
     }
 
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public void checkIn(){
+      this.setDirty(true);
+      this.setOccupied(true);
+
+    }
+
+    public void checkOut(){
+        cleanRoom();
+
+    }
+
+    public void cleanRoom(){
+        this.dirty = false;
+        this.occupied = false;
+    }
 
 }
