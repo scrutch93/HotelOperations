@@ -1,9 +1,12 @@
 package com.pluralsight;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Employee {
 
-    LocalTime currentTime = LocalTime.now();
+
 
 
    private int employeeId;
@@ -102,6 +105,7 @@ public class Employee {
 
     public void punchIn(double time){
 
+
         this.startTime = time;
 
     }
@@ -111,6 +115,34 @@ public class Employee {
        this.hoursWorked += time - this.startTime;
 
 
+
+    }
+
+    public void punchIn(){
+
+       LocalDateTime now = LocalDateTime.now();
+
+       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        String formatDateTime = now.format(formatter);
+
+        //System.out.println(formatDateTime);
+
+        this.startTime = Double.parseDouble(formatDateTime);
+
+
+    }
+
+    public void punchOut(){
+        LocalDateTime now = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        String formatDateTime = now.format(formatter);
+
+        //System.out.println(formatDateTime);
+
+       // this.hoursWorked += formatDateTime;
 
     }
 

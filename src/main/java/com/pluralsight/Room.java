@@ -10,12 +10,12 @@ public class Room {
 
 
 
-    public Room(int numberOfBeds, float price, boolean occupied, boolean dirty, boolean available){
+    public Room(int numberOfBeds, float price){
         this.numberOfBeds = numberOfBeds;
         this.price = price;
-        this.occupied = occupied;
-        this.dirty = dirty;
-        this.available = available;
+//        this.occupied = occupied;
+//        this.dirty = dirty;
+//        this.available = available;
 
     }
 
